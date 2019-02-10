@@ -2,11 +2,10 @@ let field = document.getElementsByName('feild')[0],
 	resultsDiv = document.querySelector('.results-container'),
 	btn = document.getElementById('submit');
 const doThings = () => {
-	if(!sessionStorage.getItem('feild')) {
+	let results = sessionStorage.getItem('feild');
+	if(!results) {
 		sessionStorage.setItem('feild',`[{"Key":"${field.value? field.value: "no value"}"}]`);
 	}
-	let results = sessionStorage.getItem('feild');
-	
 	// checking type of the values in the sessionStorage
 	console.log('TypeOf results is(before json.parse): ', typeof results);//string
 	console.log('resutls: ', results);//disp string or objects?
