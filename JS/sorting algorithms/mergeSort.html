@@ -1,0 +1,41 @@
+<html>
+<!--just a quicky styling-->
+<head><title>Merge Sort</title><link rel="stylesheet" href="styles.css"></head>
+<body onload="mergeSort()">
+ <p>Unsorted: <code id="deck"></code></p>
+ <p>Sorted: <code id="newdeck"></code></p>
+ <button class= "button" onclick="mergeSort()">Generate Random Numbers</button>
+
+ <footer id ="down"><h6>press <code>[F12]</code> to check how long it took to do this job</h6></footer>
+ <h6><code>read more on sorting algorithms and <a href="http://bigocheatsheet.com/" target="_blank" rel="noopener noreferrer">Big O</a><code></h6>
+<script>
+function mergeSort(){
+	//create the number array
+	let deck = []; // initial array
+	let max = 10;//number of iterations
+	for(let i=0; i<max;i++){
+		deck.push(Math.floor(Math.random(max)*max))
+	}
+	let leftDeck = [];
+	let rightDeck = [];
+	
+	document.getElementById("deck").innerHTML = `[${deck}]`;
+	
+	let timerflag = `${max} iterations took: `;
+	console.time(timerflag);
+	//sort [1, 4, 4, 5, 7, 9]
+	for(let i=1; i<max;i++){
+		let temp = deck[i];
+		let index = i;
+		while(index > 0 && deck[index-1] > temp){
+				deck[index] = deck[index-1];
+				index -= 1;
+			}
+		deck[index] = temp;			
+		}
+	console.timeEnd(timerflag);
+	document.getElementById("newdeck").innerHTML = `[${deck}]`;
+}
+</script>
+</body>
+</html>

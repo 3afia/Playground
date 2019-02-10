@@ -1,0 +1,51 @@
+<html>
+<!--just a quicky styling-->
+<head><link rel="stylesheet" href="styles.css"></head>
+<body onload="start()">
+ <p>Unsorted: <code id="deck"></code></p>
+ <p>Sorted: <code id="newdeck"></code></p>
+ 
+ <footer id ="down"><h6>press <code>[F12]</code> to check how long it took to do this job</h6></footer>
+ <h6><code>read more on sorting algorithms and <a href="http://bigocheatsheet.com/" target="_blank" rel="noopener noreferrer">Big O</a><code></h6>
+<script>
+//___________________________________________________
+//Setup
+"use strict";
+
+let max = 10;//array size
+
+const start=() =>{
+//create the number array
+	let deck = [];
+	for(let i=0; i<max;i++){
+		deck.push(Math.floor(Math.random(max)*max))
+	}
+	document.getElementById("deck").innerHTML = `[${deck}]`;
+	//setting up a timer
+	let timerflag = `${max} iterations took: `;
+	console.time(timerflag);
+	deck = quickSort(deck);
+	console.timeEnd(timerflag);
+	
+	document.getElementById("newdeck").innerHTML = `[${deck}]`;
+}
+//sort
+const quickSort =(adeck)=>{
+	
+		let pivotNum = adeck[adeck.length-1];
+		let leftDeck = [];
+		let rightDeck = [];
+		if(adeck.length <= 1) return adeck;
+		for(let i=0;i<adeck.length-1;i++){
+				if(adeck[i] < pivotNum){
+					leftDeck.push(adeck[i]);
+				}else{
+					rightDeck.push(adeck[i]);
+				}
+			}
+		return [...quickSort(leftDeck), pivotNum, ...quickSort(rightDeck)];
+	}
+</script>
+<button class= "button" onclick="start()">Generate Random Numbers</button>
+</body>
+</html>

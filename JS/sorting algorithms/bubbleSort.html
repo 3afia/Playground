@@ -1,0 +1,41 @@
+<html>
+<!--just a quicky styling-->
+<head><title>Bubble Sort</title><link rel="stylesheet" href="styles.css"></head>
+<body onload="bubbleSort()">
+ <p>Unsorted: <code id="deck"></code></p>
+ <p>Sorted: <code id="newdeck"></code></p>
+ <button class= "button" onclick="bubbleSort()">Generate Random Numbers</button>
+
+ <footer id ="down"><h6>press <code>[F12]</code> to check how long it took to do this job</h6></footer> 
+ <h6><code>read more on sorting algorithms and <a href="http://bigocheatsheet.com/" target="_blank" rel="noopener noreferrer">Big O</a><code></h6>
+<script>
+function bubbleSort(){
+	//create the number array
+	let deck = []; // initial array
+	let max = 10;//number of iterations
+	for(let i=0; i<max;i++){
+		deck.push(Math.floor(Math.random(max)*max))
+	}
+	
+	document.getElementById("deck").innerHTML = `[${deck}]`;
+	
+	let timerflag = `${max} iterations took: `;
+	console.time(timerflag);
+	//sort
+	for(let i=0; i<max-1;i++){
+		let temp;
+		for(let j=0; j<max-i-1;j++){
+			if(deck[j]> deck[j+1]){
+				temp = deck[j];
+				deck[j] = deck[j+1];
+				deck[j+1] = temp;
+			}	
+		}
+	}
+	console.timeEnd(timerflag);
+	document.getElementById("newdeck").innerHTML = `[${deck}]`;
+}
+</script>
+
+</body>
+</html>
