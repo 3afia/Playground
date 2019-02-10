@@ -12,14 +12,14 @@
 function bubbleSort(){
 	//create the number array
 	let deck = []; // initial array
-	let max = 10;//number of iterations
+	let max = 10;//number of numbers
 	for(let i=0; i<max;i++){
 		deck.push(Math.floor(Math.random(max)*max))
 	}
 	
-	document.getElementById("deck").innerHTML = `[${deck}]`;
+	document.getElementById("deck").textContent = `[${deck}]`;
 	
-	let timerflag = `${max} iterations took: `;
+	let timerflag = `${max} numbers took: `;
 	console.time(timerflag);
 	//sort
 	for(let i=0; i<max-1;i++){
@@ -33,7 +33,7 @@ function bubbleSort(){
 		}
 	}
 	console.timeEnd(timerflag);
-	document.getElementById("newdeck").innerHTML = `[${deck}]`;
+	document.getElementById("newdeck").textContent = `[${deck}]`;
 }
 </script>
 

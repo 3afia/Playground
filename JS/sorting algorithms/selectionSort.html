@@ -16,8 +16,8 @@ function slectionSort(){
 	for(let i=0; i<max;i++){
 		deck.push(Math.floor(Math.random(max)*max))
 	}
-	document.getElementById("deck").innerHTML = `[${deck}]`;
-	let timerflag = `${max} iterations took: `;
+	document.getElementById("deck").textContent = `[${deck}]`;
+	let timerflag = `${max} number[s] took: `;
 	console.time(timerflag);
 	//sort
 	let temp;
@@ -31,7 +31,7 @@ function slectionSort(){
 		}
 	}
 	console.timeEnd(timerflag);
-	document.getElementById("newdeck").innerHTML = `[${deck}]`;
+	document.getElementById("newdeck").textContent = `[${deck}]`;
 }
 </script>
 </body>
