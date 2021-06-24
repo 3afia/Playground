@@ -12,5 +12,5 @@ Disclaimer: this is not something new I came up with, its readily available onli
 - insertionSort.html: insertion sorting algorithem.
 - hashtabels.js: hash tables algorithem.
 - linkedList.js: linked list algorithem.
-- palindrome.js: a palindrome script
-- rec.js: recursion script
+- palindrome.js: a palindrome script.
+- rec.js: recursion script.
